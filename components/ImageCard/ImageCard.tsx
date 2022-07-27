@@ -9,8 +9,6 @@ export type CardProps = {
   };
   
   export const ImageCard = ({text, category, longText, onPress}: CardProps) => (
-    <NativeBaseProvider>
-       <Box alignItems="center">
       <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
       borderColor: "coolGray.600",
       backgroundColor: "gray.700"
@@ -63,8 +61,6 @@ export type CardProps = {
           </HStack>
         </Stack>
       </Box>
-    </Box>;
-    </NativeBaseProvider>
   
   );
   

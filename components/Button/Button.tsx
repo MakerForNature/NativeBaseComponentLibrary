@@ -7,10 +7,5 @@ export type ButtonProps = {
 };
 
 export const NButton = ({text, onPress}: ButtonProps) => (
-  <NativeBaseProvider>
-     <Box alignItems="center">
-        <Button onPress={() => onPress}>{text}</Button>
-      </Box>
-  </NativeBaseProvider>
-
+    <Button onPress={() => onPress}>{text}</Button>
 );
