@@ -3,6 +3,7 @@ import React from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
 import {ImageCard} from './ImageCard';
+import { Box, NativeBaseProvider } from 'native-base';
 
 export default {
   title: 'components/ImageCard',
@@ -10,7 +11,11 @@ export default {
 } as ComponentMeta<typeof ImageCard>;
 
 export const Basic: ComponentStory<typeof ImageCard> = args => (
-  <ImageCard {...args} />
+  <NativeBaseProvider>
+    <Box alignItems="center">
+      <ImageCard {...args} />
+    </Box>
+  </NativeBaseProvider>
 );
 
 Basic.args = {
