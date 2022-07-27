@@ -2,18 +2,17 @@
 import React from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
-import {MyButton} from './Button';
+import {NButton} from './Button';
 
 export default {
-  title: 'components/MyButton',
-  component: MyButton,
-} as ComponentMeta<typeof MyButton>;
+  title: 'components/Button',
+  component: NButton,
+} as ComponentMeta<typeof NButton>;
 
-export const Basic: ComponentStory<typeof MyButton> = args => (
-  <MyButton {...args} />
+export const Basic: ComponentStory<typeof NButton> = args => (
+  <NButton {...args} />
 );
 
 Basic.args = {
   text: 'Hello World',
-  color: 'purple',
 };
