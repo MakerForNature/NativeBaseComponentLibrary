@@ -8,6 +8,12 @@ import { Box, NativeBaseProvider } from 'native-base';
 export default {
   title: 'components/ImageCard',
   component: ImageCard,
+  parameters: {
+    componentSource: {
+      url: 'https://raw.githubusercontent.com/MakerForNature/NativeBaseComponentLibrary/main/components/ImageCard/ImageCard.tsx',
+      language: 'javascript',
+    }
+  },
 } as ComponentMeta<typeof ImageCard>;
 
 export const Basic: ComponentStory<typeof ImageCard> = args => (
@@ -19,7 +25,7 @@ export const Basic: ComponentStory<typeof ImageCard> = args => (
 );
 
 Basic.args = {
-  text: 'Hello World',
+  headerText: 'Bengaluru',
   longText: 'Bengaluru (also called Bangalore) is the center of India\'s high-tech industry. The city is also known for its parks and nightlife.',
-  category: 'PHOTOS',
+  category: 'CITIES',
 };

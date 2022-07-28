@@ -8,6 +8,12 @@ import { Box, NativeBaseProvider } from 'native-base';
 export default {
   title: 'components/Button',
   component: NButton,
+  parameters: {
+    componentSource: {
+      url: 'https://raw.githubusercontent.com/MakerForNature/NativeBaseComponentLibrary/main/components/Button/Button.tsx',
+      language: 'javascript',
+    }
+  },
 } as ComponentMeta<typeof NButton>;
 
 export const Basic: ComponentStory<typeof NButton> = args => (

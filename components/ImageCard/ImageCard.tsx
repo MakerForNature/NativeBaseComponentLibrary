@@ -1,14 +1,14 @@
 import React from 'react';
-import {Box, NativeBaseProvider, Image, AspectRatio, Center, Stack, Heading, Text, HStack } from "native-base";
+import {Box, Image, AspectRatio, Center, Stack, Heading, Text, HStack } from "native-base";
 
 export type CardProps = {
     onPress: () => void;
-    text: string;
+    headerText: string;
     longText: string;
     category: string;
   };
   
-  export const ImageCard = ({text, category, longText, onPress}: CardProps) => (
+  export const ImageCard = ({category, headerText, longText, onPress}: CardProps) => (
       <Box maxW="80" rounded="lg" overflow="hidden" borderColor="coolGray.200" borderWidth="1" _dark={{
       borderColor: "coolGray.600",
       backgroundColor: "gray.700"
@@ -37,7 +37,7 @@ export type CardProps = {
         <Stack p="4" space={3}>
           <Stack space={2}>
             <Heading size="md" ml="-1">
-              The Garden City
+              {headerText}
             </Heading>
             <Text fontSize="xs" _light={{
             color: "violet.500"
