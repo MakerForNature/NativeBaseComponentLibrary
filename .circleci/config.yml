@@ -1,0 +1,55 @@
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+
+  build_storybook:
+    docker:
+      - image: cimg/node:16.6 # the primary container, where your job's commands are run
+
+    steps:
+      - checkout # check out the code in the project directory
+      - node/install-packages
+      - attach_workspace:
+          at: ~/NativeBaseComponentLibrary
+      - run: npm run build-storybook
+      - persist_to_workspace:
+          root: ~/NativeBaseComponentLibrary
+          paths:
+            - .
+  
+  release:
+    docker:
+      - image: cimg/node:16.6 # the primary container, where your job's commands are run
+    
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Add github.com to known hosts
+          command: mkdir ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run:
+          name: Versioning
+          command: npm version patch -m "version %s [skip ci]"
+      - run:
+          name: Push tag & changes to github.com
+          command: git push
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run:
+          name: Publish the package
+          command: npm publish
+
+workflows:
+  Build and Deploy Component Library:
+    jobs:
+      - build_storybook
+      - release:
+          requires:
+            - build_storybook
+          filters:
+            branches:
+              only:
+                - main
