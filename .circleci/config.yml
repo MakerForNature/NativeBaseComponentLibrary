@@ -23,10 +23,3 @@ workflows:
   Build and Deploy Component Library:
     jobs:
       - build_storybook
-      - release:
-          requires:
-            - build_storybook
-          filters:
-            branches:
-              only:
-                - main
