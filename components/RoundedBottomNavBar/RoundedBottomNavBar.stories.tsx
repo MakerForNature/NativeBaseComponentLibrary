@@ -2,7 +2,7 @@
 import React from 'react';
 import {ComponentMeta, ComponentStory} from '@storybook/react';
 
-import {RoundedNavBar} from './BottomNavBar';
+import {RoundedNavBar} from './RoundedBottomNavBar';
 import { Box, NativeBaseProvider } from 'native-base';
 
 export default {
